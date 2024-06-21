@@ -3,7 +3,7 @@ import './style/style.css';
 
 const ul = document.querySelector('ul')!;
 const form = document.querySelector('form')!;
-const input: HTMLInputElement = document.querySelector("form > input")!;
+const input: HTMLInputElement = document.querySelector('form > input')!;
 
 form.addEventListener('submit', (event: Event): void => {
   event.preventDefault();
@@ -12,8 +12,8 @@ form.addEventListener('submit', (event: Event): void => {
   addTodo(value);
 });
 
-document.addEventListener('keydown', (event) => {
-  const todo = todos.find((t) => t.editMode);
+document.addEventListener('keydown', event => {
+  const todo = todos.find(t => t.editMode);
   if (event.key === 'Escape' && todo) {
     todo.editMode = false;
     displayTodo();
@@ -24,8 +24,8 @@ const todos: Todo[] = [
   {
     text: 'Faire du JavaScript',
     done: true,
-    editMode: false,
-  },
+    editMode: false
+  }
 ];
 
 const displayTodo = () => {
@@ -67,12 +67,12 @@ const createTodoElement = (todo: Todo, index: number): HTMLLIElement => {
   return li;
 };
 
-const createTodoEditElement = (todo: any, index: number) => {
-  const li = document.createElement('li');
-  const input = document.createElement('input');
+const createTodoEditElement = (todo: Todo, index: number) => {
+  const li: HTMLLIElement = document.createElement('li');
+  const input: HTMLInputElement = document.createElement('input');
   input.type = 'text';
   input.value = todo.text;
-  input.addEventListener('keydown', (event) => {
+  input.addEventListener('keydown', event => {
     if (event.key === 'Enter') {
       editTodo(index, input);
     }
@@ -83,11 +83,11 @@ const createTodoEditElement = (todo: any, index: number) => {
   const buttonCancel = document.createElement('button');
   buttonCancel.innerHTML = 'Cancel';
   buttonCancel.classList.add('danger');
-  buttonCancel.addEventListener('click', (event) => {
+  buttonCancel.addEventListener('click', event => {
     event.stopPropagation();
     toggleEditMode(index);
   });
-  buttonSave.addEventListener('click', (event) => {
+  buttonSave.addEventListener('click', _ => {
     editTodo(index, input);
   });
   li.append(input, buttonSave, buttonCancel);
@@ -101,7 +101,7 @@ const addTodo = (text: string): void => {
     todos.push({
       text: `${text[0].toUpperCase()}${text.slice(1)}`,
       done: false,
-      editMode: false,
+      editMode: false
     });
     displayTodo();
   }

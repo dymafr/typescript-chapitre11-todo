@@ -1,0 +1,16 @@
+{
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "typescript.format.enable": true,
+    "typescript.validate.enable": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.suggest.autoImports": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "none",
+    "prettier.semi": true,
+    "prettier.arrowParens": "avoid"
+  }
+  
