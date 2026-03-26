@@ -1,4 +1,4 @@
-import { Todo } from './interfaces/todo.interface';
+import type { Todo } from './interfaces/todo.interface';
 import './style/style.css';
 
 const ul = document.querySelector('ul')!;
@@ -99,7 +99,7 @@ const addTodo = (text: string): void => {
   text = text.trim();
   if (text) {
     todos.push({
-      text: `${text[0].toUpperCase()}${text.slice(1)}`,
+      text: `${text[0]!.toUpperCase()}${text.slice(1)}`,
       done: false,
       editMode: false
     });
@@ -113,19 +113,19 @@ const deleteTodo = (index: number): void => {
 };
 
 const toggleTodo = (index: number): void => {
-  todos[index].done = !todos[index].done;
+  todos[index]!.done = !todos[index]!.done;
   displayTodo();
 };
 
 const toggleEditMode = (index: number): void => {
-  todos[index].editMode = !todos[index].editMode;
+  todos[index]!.editMode = !todos[index]!.editMode;
   displayTodo();
 };
 
 const editTodo = (index: number, input: HTMLInputElement): void => {
   const value = input.value;
-  todos[index].text = value;
-  todos[index].editMode = false;
+  todos[index]!.text = value;
+  todos[index]!.editMode = false;
   displayTodo();
 };
 
