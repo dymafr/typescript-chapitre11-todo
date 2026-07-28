@@ -1,5 +1,5 @@
 export interface Todo {
-    text: string;
-    done: boolean;
-    editMode: boolean;
-  }
+  text: string;
+  done: boolean;
+  editMode: boolean;
+}
